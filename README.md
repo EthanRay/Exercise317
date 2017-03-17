@@ -1,5 +1,3 @@
-# Exercise317
-Sometimes U need Exercise
 <p class="poem-detail-main-text" id="body_p">                                
 	<span id="body_1_0">                    <span style="font-size:18px;"><strong><span style="font-family:SimHei;">春江潮水连海平，                </span></strong></span></span><span style="font-size:18px;"><strong><span style="font-family:SimHei;">                                <span id="body_1_1">                    海上明月共潮生。                </span></span>                            </strong></span>
 </p>
@@ -28,7 +26,45 @@ Sometimes U need Exercise
 </p>
 <span style="font-family:KaiTi_GB2312;font-size:18px;"><em>                                    </em></span>
 <p class="poem-detail-main-text" id="body_p">
-	<span style="font-family:KaiTi_GB2312;font-size:18px;"><em>                                <span id="body_8_0">                    不知江月待何人，                </span>                                </em></span><span id="body_8_1"><span style="font-family:KaiTi_GB2312;font-size:18px;"><em>                    <span class="body-zhushi-span">但见</span>长江送流水。</em></span>                </span>                            
+	<span style="font-family:KaiTi_GB2312;font-size:18px;"><em>                                <span id="body_8_0">                    不知江月待何人，                </span>                                </em></span><span id="body_8_1"><span style="font-family:KaiTi_GB2312;font-size:18px;"><em>                    <span class="body-zhushi-span">但见</span>长江送流水。</em></span></span>
+</p>
+<p class="poem-detail-main-text">
+	<span id="body_8_1"><span style="font-family:KaiTi_GB2312;font-size:18px;"><em></em></span></span>
+	<pre name="code" class="cpp">void dijkstra(int s)
+{
+	int dis[MAXVEX], used[MAXVEX], u;
+	fill(dis, dis + V, INF);
+	memset(used, 0, sizeof(used));
+	dis[s] = 0;
+	M cost;
+	cost = GenEdgeMat();
+
+
+	while (true)
+	{
+		int v = -1, mins = INF;
+		for (int u = 0; u &lt; V; ++u)
+		{
+			if (used[u] == 0 &amp;&amp; dis[u] &lt; mins)
+			{
+				mins = dis[u];
+				v = u;
+			}
+		}
+
+		if (v == -1)break;
+		used[v] = true;
+
+		for (int u = 0; u &lt; V; ++u)
+			dis[u] = min(dis[u], dis[v] + cost[v][u]);
+	}
+
+	for (int i = 0; i &lt; V; ++i)
+		printf(&quot;%d %d\n&quot;, i, dis[i]);
+}</pre>
+	<br />
+	<br />
+	                                            
 </p>                                    
 <p class="poem-detail-main-text" id="body_p">                                
 	<span id="body_9_0">                    <u><span style="font-size:18px;">白云一片去<span class="body-zhushi-span">悠悠</span>，                </span></u></span><u><span style="font-size:18px;">                                <span id="body_9_1">                    <span class="body-zhushi-span">青枫浦上</span>不胜愁。                </span>                            </span></u>
